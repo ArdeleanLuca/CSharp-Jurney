@@ -1,7 +1,7 @@
 using System;
 using System.Runtime.InteropServices;
 
-namespace PasswordSecuritySystem
+namespace DiceGame
 {
     class Program
     {
@@ -9,20 +9,18 @@ namespace PasswordSecuritySystem
         {
             while (true)
             {
-                Console.WriteLine("------ Barbut ------");
-                Console.WriteLine("Cum te numesti?");
+                Console.WriteLine("------ Dice Game ------");
+                Console.WriteLine("What is your name?");
                 string name = Console.ReadLine().ToUpper();
-
 
                 while (true)
                 {
-                    Console.WriteLine("Vrei sa incepi? (Enter / q): ");
+                    Console.WriteLine("Do you want to start? (Enter / q to quit): ");
                     string question = Console.ReadLine().ToLower();
-
 
                     if (question == "q")
                     {
-                        Console.WriteLine("Multumesc ca te-ai jucat!");
+                        Console.WriteLine("Thanks for playing!");
                         return;
                     }
 
@@ -37,20 +35,17 @@ namespace PasswordSecuritySystem
                         Console.WriteLine();
                         Console.WriteLine("Enter to roll the dice...");
                         Console.ReadLine();
-                        Console.WriteLine($"Calculatorul: {zar2}");
+                        Console.WriteLine($"Computer: {zar2}");
                         Console.WriteLine();
 
-                        if (zar1 > zar2) { Console.WriteLine($"{name} a castigat!"); }
-                        else if (zar2 > zar1) { Console.WriteLine("Calculatorul a castigat"); }
-                        else { Console.WriteLine("Felicitari amandurora! Egalitate :) "); }
-
+                        if (zar1 > zar2) { Console.WriteLine($"{name} won!"); }
+                        else if (zar2 > zar1) { Console.WriteLine("The Computer won!"); }
+                        else { Console.WriteLine("Congratulations to both! It's a tie :) "); }
                     }
-
                     else
                     {
                         Console.WriteLine("Incorrect symbol");
                     }
-
                 }
             }
         }
