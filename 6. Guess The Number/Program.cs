@@ -8,36 +8,41 @@ namespace everything_project
             Console.Write("Am ales un numar de la 1 la 100, ghiceste-l: ");
             Random rnd = new Random();
             int num = rnd.Next(1, 101);
-            Console.WriteLine(num);
             bool running = true;
 
-            while (running)
+            while (running == true)
             {
                 int guessing = int.Parse(Console.ReadLine());
-                int near = num - 5;
-                int far = num + 10;
+                int difference = Math.Abs(num - guessing);
 
-                 if (guessing == num)
-                 {
+                if (guessing == num)
+                {
                     Console.WriteLine("Felicitari, ai ghicit numarul!");
                     running = false;
-                 }
-
-                else if (guessing >= near)
-                {
-                    Console.WriteLine("Foarte aproape");
                 }
 
-                else if(guessing <= far)
+                else if (difference <= 5)
                 {
-                    Console.WriteLine("Departe");
+                    Console.WriteLine("Esti foarte aproape (fierbinte)!");
                 }
 
-                else
+                else if (difference <= 15)
                 {
-                    Console.Write("Mai incearca!: ");
+                    Console.WriteLine("Esti destul de aproape (caldut).");
                 }
+
+                else if (guessing < num)
+                {
+                    Console.WriteLine("Prea mic! Mai încearcă.");
+                }
+
+                else 
+                {
+                    Console.WriteLine("Prea mare! Mai încearcă.");
+                }
+
             }
+
             Console.WriteLine();
             Console.WriteLine("Multumesc ca te-ai jucat");
         }
